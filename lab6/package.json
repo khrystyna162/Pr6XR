@@ -1,0 +1,23 @@
+{
+  "name": "lab6-auth",
+  "version": "1.0.0",
+  "description": "Lab 6 - Authentication and Authorization",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.25.0",
+    "@fastify/swagger": "^8.13.0",
+    "@fastify/swagger-ui": "^2.1.0",
+    "@fastify/cookie": "^9.3.0",
+    "@fastify/auth": "^4.5.0",
+    "@fastify/request-context": "^5.1.0",
+    "bcrypt": "^5.1.1"
+  }
+}

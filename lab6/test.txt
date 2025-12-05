@@ -1,0 +1,38 @@
+=== Тестування API ===
+
+1. Реєстрація користувача...
+Статус: 201
+Відповідь: { id: 1, username: 'testuser', createdAt: '2025-11-24T07:54:38.127Z' }
+
+2. Вхід користувача...
+Статус: 200
+Відповідь: { message: 'Login successful', user: { id: 1, username: 'testuser' } }
+Cookie (повний): sessionId=e5cafe0f7b50869bc16435b9e5f3790979640d61d74cff6ba318298b58b288e3; Max-Age=86400; HttpOnly; SameSite=Lax
+Cookie (відправляємо): sessionId=e5cafe0f7b50869bc16435b9e5f3790979640d61d74cff6ba318298b58b288e3
+
+3. Отримання інформації про користувача...
+Відправляємо cookie: sessionId=e5cafe0f7b50869bc16435b9e5f3790979640d61d74cff6ba318298b58b288e3
+Статус: 200
+Відповідь: { id: 1, username: 'testuser', createdAt: '2025-11-24T07:54:38.127Z' }
+
+4. Створення ресурсу (потребує автентифікації)...
+Статус: 200
+Відповідь: {
+  message: 'Resource created by user',
+  userId: 1,
+  username: 'testuser'
+}
+
+5. Спроба доступу до захищеного ресурсу без автентифікації...
+Статус: 401
+Відповідь: { error: 'Unauthorized' }
+
+6. Вихід користувача...
+Статус: 200
+Відповідь: { message: 'Logout successful' }
+
+7. Спроба доступу після виходу...
+Статус: 401
+Відповідь: { error: 'Session expired or invalid' }
+
+=== Тестування завершено ===

@@ -1,0 +1,77 @@
+export const registerSchema = {
+  body: {
+    type: 'object',
+    required: ['username', 'password'],
+    properties: {
+      username: { 
+        type: 'string', 
+        minLength: 3,
+        maxLength: 50 
+      },
+      password: { 
+        type: 'string', 
+        minLength: 6 
+      }
+    }
+  },
+  response: {
+    201: {
+      type: 'object',
+      properties: {
+        id: { type: 'number' },
+        username: { type: 'string' },
+        createdAt: { type: 'string' }
+      }
+    }
+  }
+};
+
+export const loginSchema = {
+  body: {
+    type: 'object',
+    required: ['username', 'password'],
+    properties: {
+      username: { type: 'string' },
+      password: { type: 'string' }
+    }
+  },
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        message: { type: 'string' },
+        user: {
+          type: 'object',
+          properties: {
+            id: { type: 'number' },
+            username: { type: 'string' }
+          }
+        }
+      }
+    }
+  }
+};
+
+export const userInfoSchema = {
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        id: { type: 'number' },
+        username: { type: 'string' },
+        createdAt: { type: 'string' }
+      }
+    }
+  }
+};
+
+export const logoutSchema = {
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        message: { type: 'string' }
+      }
+    }
+  }
+};
